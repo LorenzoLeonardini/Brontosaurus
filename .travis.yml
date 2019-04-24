@@ -1,15 +1,15 @@
 language: php
 
 php:
-    - 7.1
+    # - 7.1
     - 7.2
     - 7.3
 
 install:
     - travis_retry composer install --no-interaction --no-suggest
 
-script:
-    - ./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests
+# script:
+#     - ./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests
 
 cache:
     directories:

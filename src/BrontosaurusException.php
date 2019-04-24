@@ -2,6 +2,6 @@
 
 namespace Brontosaurus;
 
-class BrontosaurusException extends Exception {
-    
+class BrontosaurusException extends \Exception {
+
 }
