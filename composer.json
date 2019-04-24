@@ -1,0 +1,20 @@
+{
+    "name": "leonardini/brontosaurus",
+    "description": "PHP security auditor for websites",
+    "type": "library",
+    "homepage": "https://brontosaurus.leonardini.dev",
+    "authors": [
+        {
+            "name": "LorenzoLeonardini",
+            "email": "dev.lorenzoleonardini@gmail.com",
+            "homepage": "https://leonardini.dev",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Brontosaurus\\": "src/"
+        }
+    },
+    "require": {}
+}
