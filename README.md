@@ -1,5 +1,5 @@
 <div align="center"><img src="http://brontosaurus.leonardini.dev/logo.svg" width="75px" margin="0"></div>
-<div align="center"><h1>Brontosaurus <a href="https://travis-ci.org/LorenzoLeonardini/Brontosaurus"><img src="https://travis-ci.org/LorenzoLeonardini/Brontosaurus.svg?branch=master"></a></h1></div>
+<div align="center"><h1>Brontosaurus <a href="https://travis-ci.org/LorenzoLeonardini/Brontosaurus" target="blank"><img src="https://travis-ci.org/LorenzoLeonardini/Brontosaurus.svg?branch=master"></a></h1></div>
 
 **Brontosaurus** is a security tool for your PHP website.
 
