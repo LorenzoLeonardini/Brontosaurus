@@ -2,6 +2,7 @@
     "name": "leonardini/brontosaurus",
     "description": "PHP security auditor for websites",
     "type": "library",
+    "license": "MIT",
     "homepage": "https://brontosaurus.leonardini.dev",
     "authors": [
         {
