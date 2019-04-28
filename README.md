@@ -1,4 +1,4 @@
-<img align="left" src="http://brontosaurus.leonardini.dev/logo.svg" height="110px"><h1>&nbsp;Brontosaurus <a href="https://travis-ci.org/LorenzoLeonardini/Brontosaurus" target="blank"><img src="https://travis-ci.org/LorenzoLeonardini/Brontosaurus.svg?branch=master"></a></h1>
+<img align="left" src="http://brontosaurus.leonardini.dev/logo.svg" height="110px"><h1>&nbsp;Brontosaurus <a href="https://travis-ci.org/LorenzoLeonardini/Brontosaurus" target="blank"><img src="https://travis-ci.org/LorenzoLeonardini/Brontosaurus.svg?branch=master"></a>&nbsp;<a href="https://codecov.io/gh/LorenzoLeonardini/Brontosaurus"><img src="https://codecov.io/gh/LorenzoLeonardini/Brontosaurus/branch/master/graph/badge.svg" /></a>&nbsp;<a href="https://paypal.me/lorenzoleonardini"><img src="https://img.shields.io/badge/Donate-PayPal-9cf.svg?logo=paypal"></a></h1>
 <br />
 
 **Brontosaurus** is a security tool for your PHP website.

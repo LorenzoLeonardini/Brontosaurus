@@ -9,7 +9,10 @@ install:
     - travis_retry composer install --no-interaction --no-suggest
 
 script:
-    - ./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests
+    - ./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests --coverage-clover=coverage.xml
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
 
 cache:
     directories:
