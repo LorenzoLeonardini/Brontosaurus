@@ -49,20 +49,24 @@ The code you need on the form page is the following:
 
 ```php
 // It is extremely important that a descriptive form name is provided as parameter, because tokens must be strictly linked to every form of your website
-$token = \Brontosaurus\FormToken::generateToken("form_name");
+$token = \Brontosaurus\FormToken\generateToken("form_name");
 
 // The token must be sent to the server in a 'form_token' parameter, for security only POST request are supported
 echo "<input type=\"hidden\" name=\"form_token\" value=\"$token\">";
+// The form name must be sent in a 'form_name' parameter, too
+echo "<input type=\"hidden\" name=\"form_name\" value=\"form_name\">";
 ```
 
 To check the validity of the token you will use:
 
 ```php
-$validToken = \Brontosaurus\FormToken::validateToken("form_name");
+$validation = \Brontosaurus\FormToken\validateToken("form_name");
 
-if($validToken) {
+if($validation->isSuccessfull()) {
     // The token comes from your form
 } else {
     // The token has not passed the check
 }
 ```
+
+Major info about the validation process could be obtained with `$validation->getCode()`. Give a look to `ValidationCode` enum.

@@ -15,7 +15,10 @@
     "autoload": {
         "psr-4": {
             "Brontosaurus\\": "src/"
-        }
+        },
+        "files": [
+            "src/FormToken.php"
+        ]
     },
     "require": {
     },
