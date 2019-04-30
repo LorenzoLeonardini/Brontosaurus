@@ -3,10 +3,6 @@
 namespace Brontosaurus\FormToken;
 
 function generateToken(string $name) : string {
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
-
     if(!isset($_SESSION['form_tokens_'.$name])) {
         $_SESSION['form_tokens_'.$name] = [];
     }

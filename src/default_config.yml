@@ -1,2 +1,5 @@
+dummy_config:
+    testing: true
+
 form_token:
     maximum_tokens: 20

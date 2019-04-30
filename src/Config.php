@@ -33,4 +33,8 @@ class Config {
         return self::$config[$parent][$property];
     }
 
+    public static function unloadConfig() {
+        self::$config = NULL;
+    }
+
 }
