@@ -9,6 +9,7 @@ if (session_status() == PHP_SESSION_NONE) {
 class ConfigTest extends TestCase {
 
     public function testDefaultConfig() {
+        \Brontosaurus\Config::clean();
         \Brontosaurus\Config::loadFromFile(__DIR__."/../src/default_config.yml");
         $this->assertSame(20, \Brontosaurus\Config::getProperty("form_token", "maximum_tokens"));
     }

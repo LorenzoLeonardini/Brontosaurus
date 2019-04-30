@@ -7,6 +7,11 @@ class Config {
     private static $default;
     private static $config;
 
+    public static function clean() {
+        self::$default = NULL;
+        self::$config = NULL;
+    }
+
     public static function loadFromFile(string $filepath) {
         self::$config = \Symfony\Component\Yaml\Yaml::parseFile($filepath);
         if (self::$default == NULL) {
