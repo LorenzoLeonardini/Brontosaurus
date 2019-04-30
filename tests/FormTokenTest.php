@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 session_start();
 
-require_once(__DIR__.'/../src/FormToken.php');
+require_once(__DIR__.'/../src/init.php');
 
 class FormTokenTest extends TestCase {
 

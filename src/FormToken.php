@@ -10,7 +10,7 @@ function generateToken(string $name) : string {
     if(!isset($_SESSION['form_tokens_'.$name])) {
         $_SESSION['form_tokens_'.$name] = [];
     }
-    if(count($_SESSION['form_tokens_'.$name]) > 19) {
+    if(count($_SESSION['form_tokens_'.$name]) > \Brontosaurus\Config::getProperty("form_token", "maximum_tokens") - 1) {
         array_shift($_SESSION['form_tokens_'.$name]);
     }
 

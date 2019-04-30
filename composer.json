@@ -17,10 +17,12 @@
             "Brontosaurus\\": "src/"
         },
         "files": [
+            "src/init.php",
             "src/FormToken.php"
         ]
     },
     "require": {
+        "symfony/yaml": "^4.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.1"
