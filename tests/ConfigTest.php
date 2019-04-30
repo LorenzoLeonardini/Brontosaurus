@@ -2,9 +2,16 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once(__DIR__.'/../src/init.php');
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 class ConfigTest extends TestCase {
+
+    public function testDefaultConfig() {
+        \Brontosaurus\Config::loadFromFile(__DIR__."/../src/default_config.yml");
+        $this->assertSame(20, \Brontosaurus\Config::getProperty("form_token", "maximum_tokens"));
+    }
 
     public function testInvalidConfigPart1() {
         $this->expectException(InvalidArgumentException::class);
@@ -14,10 +21,6 @@ class ConfigTest extends TestCase {
     public function testInvalidConfigPart2() {
         $this->expectException(InvalidArgumentException::class);
         \Brontosaurus\Config::getProperty("random", "random");
-    }
-
-    public function testDefaultConfig() {
-        $this->assertSame(20, \Brontosaurus\Config::getProperty("form_token", "maximum_tokens"));
     }
 
     public function testLoadingConfig() {
