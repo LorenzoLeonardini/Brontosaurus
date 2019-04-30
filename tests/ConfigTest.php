@@ -30,6 +30,12 @@ class ConfigTest extends TestCase {
         $this->assertSame(20, \Brontosaurus\Config::getProperty("form_token", "maximum_tokens"));
     }
 
+    public function testMissingProperty() {
+        \Brontosaurus\Config::loadFromFile(__DIR__."/config.yml");
+        $this->assertSame(true, \Brontosaurus\Config::getProperty("dummy_config", "testing"));
+        \Brontosaurus\Config::unloadConfig();
+    }
+
     public function testWrongType() {
         $this->expectException(InvalidArgumentException::class);
         \Brontosaurus\Config::loadFromFile(__DIR__."/wrong_config.yml");
