@@ -62,7 +62,7 @@ To check the validity of the token you will use:
 ```php
 $validation = \Brontosaurus\FormToken\validateToken("form_name");
 
-if($validation->isSuccessfull()) {
+if($validation->isSuccessful()) {
     // The token comes from your form
 } else {
     // The token has not passed the check
