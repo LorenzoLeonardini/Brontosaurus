@@ -11,14 +11,14 @@ class FormTokenTest extends TestCase {
     public function testNoName() {
         $_POST['form_token'] = "random";
         $validation = \Brontosaurus\FormToken\validateToken("testForm");
-        $this->assertSame(false, $validation->isSuccessfull());
+        $this->assertSame(false, $validation->isSuccessful());
         $this->assertSame(\Brontosaurus\FormToken\ValidationCode::NO_FORM_NAME, $validation->getCode());
     }
 
     public function testNoToken() {
         $_POST['form_name'] = "testForm";
         $validation = \Brontosaurus\FormToken\validateToken("testForm");
-        $this->assertSame(false, $validation->isSuccessfull());
+        $this->assertSame(false, $validation->isSuccessful());
         $this->assertSame(\Brontosaurus\FormToken\ValidationCode::NO_FORM_TOKEN, $validation->getCode());
     }
 
@@ -26,17 +26,17 @@ class FormTokenTest extends TestCase {
         $_POST['form_token'] = \Brontosaurus\FormToken\generateToken("testForm");
         $_POST['form_name'] = "testForm";
         $validation = \Brontosaurus\FormToken\validateToken("testForm");
-        $this->assertSame(true, $validation->isSuccessfull());
+        $this->assertSame(true, $validation->isSuccessful());
 
         $_POST['form_name'] = "random";
         $validation = \Brontosaurus\FormToken\validateToken("testForm");
-        $this->assertSame(false, $validation->isSuccessfull());
+        $this->assertSame(false, $validation->isSuccessful());
         $this->assertSame(\Brontosaurus\FormToken\ValidationCode::WRONG_FORM_NAME, $validation->getCode());
 
         $_POST['form_name'] = "testForm";
         $_POST['form_token'] = "random";
         $validation = \Brontosaurus\FormToken\validateToken("testForm");
-        $this->assertSame(false, $validation->isSuccessfull());
+        $this->assertSame(false, $validation->isSuccessful());
         $this->assertSame(\Brontosaurus\FormToken\ValidationCode::INVALID_TOKEN, $validation->getCode());
     }
 
@@ -46,7 +46,7 @@ class FormTokenTest extends TestCase {
             $_POST['form_token'] = \Brontosaurus\FormToken\generateToken("testForm");
         }
         $validation = \Brontosaurus\FormToken\validateToken("testForm");
-        $this->assertSame(true, $validation->isSuccessfull());
+        $this->assertSame(true, $validation->isSuccessful());
     }
 
     public function testMaximumTwentyTokensPart1() {
@@ -56,7 +56,7 @@ class FormTokenTest extends TestCase {
             \Brontosaurus\FormToken\generateToken("testForm");
         }
         $validation = \Brontosaurus\FormToken\validateToken("testForm");
-        $this->assertSame(false, $validation->isSuccessfull());
+        $this->assertSame(false, $validation->isSuccessful());
         $this->assertSame(\Brontosaurus\FormToken\ValidationCode::INVALID_TOKEN, $validation->getCode());
     }
 
@@ -66,7 +66,7 @@ class FormTokenTest extends TestCase {
             $_POST['form_token'] = \Brontosaurus\FormToken\generateToken("testForm");
         }
         $validation = \Brontosaurus\FormToken\validateToken("testForm");
-        $this->assertSame(true, $validation->isSuccessfull());
+        $this->assertSame(true, $validation->isSuccessful());
     }
 
     public function testMaximumTwentyTokensPart3() {

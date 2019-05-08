@@ -53,7 +53,7 @@ class Validation {
         if($code < 0 || $code > 4 || ($code === 0 && !$success) || ($code !== 0 && $success)) throw new \InvalidArgumentException("Validation Code ".$code." is not valid.");
     }
 
-    public function isSuccessfull() : bool {
+    public function isSuccessful() : bool {
         return $this->_success;
     }
 
