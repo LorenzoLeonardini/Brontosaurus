@@ -12,6 +12,7 @@ Current features include:
 - [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Form Tokens](#form-tokens)
+- [Configuration](#configuration)
 
 ## Installation
 
@@ -43,7 +44,7 @@ When your website has a form, you usually want to receive submissions only from 
 
 Keeping in mind that this problem cannot be completely solved, **Brontosaurus** has a nice tool to help you make your forms a little bit more secure.
 
-This works by generating a hidden random token every time the form page is loaded. The token is than sent to the server together with the form data and checked if the same of the one saved in session. The user could have multiple browser tabs opened and to support that _the last 20 tokens_ are saved in session (I plan to make that number customizable).
+This works by generating a hidden random token every time the form page is loaded. The token is than sent to the server together with the form data and checked if its the same one saved in session. The user could have multiple browser tabs opened and to support that _the last 20 tokens_ are saved in session (that number is customizable, check the [configuration](#configuration) section).
 
 The code you need on the form page is the following:
 
@@ -70,3 +71,24 @@ if($validation->isSuccessful()) {
 ```
 
 Major info about the validation process could be obtained with `$validation->getCode()`. Give a look to `ValidationCode` enum.
+
+## Configuration
+
+**Brontosaurus** can be configured through a yml file. To load the config file use
+
+```php
+\Brontosaurus\Config::loadFromFile(__DIR__."/config.yml");
+```
+
+You can also unload your custom configs (default ones would be restored)
+
+```php
+\Brontosaurus\Config::unloadConfig();
+```
+
+This is an example config file:
+
+```yml
+form_token:
+    maximum_tokens: 40
+```
