@@ -4,20 +4,72 @@
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143781594-2"></script>
 		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
+            function analytics() {
+    			window.dataLayer = window.dataLayer || [];
+    			function gtag(){dataLayer.push(arguments);}
+    			gtag('js', new Date());
 
-			gtag('config', 'UA-143781594-2');
+    			gtag('config', 'UA-143781594-2');
+            }
+
+            function remove_analytics() {
+                document.cookie = '_gid' + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                document.cookie = '_ga' + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                document.cookie = '_gat_gtag_UA_143781594_2' + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            }
 		</script>
         <meta charset="utf-8">
         <title>Brontosaurus</title>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+        <script>
+            window.addEventListener("load", function(){
+                window.cookieconsent.domain = 'localhost'
+                window.cookieconsent.path = '/'
+                window.cookieconsent.initialise({
+                    palette: {
+                        popup: { background: "#252e39" },
+                        button: { background: "#14a7d0" }
+                    },
+                    revokable: true,
+                    theme: "edgeless",
+                    position: "bottom-right",
+                    type: "opt-in",
+                    content: {
+                        message: "This website uses cookies to ensure you get the best experience on our website and to allow us to get statistical data.",
+                        allow: "Allow"
+                    },
+                    onInitialise: function (status) {
+                        var didConsent = this.hasConsented();
+                        if (didConsent) {
+                            analytics()
+                        } else {
+                            remove_analytics()
+                        }
+                    },
+                    onStatusChange: function(status, chosenBefore) {
+                        var didConsent = this.hasConsented();
+                        if (didConsent) {
+                            analytics()
+                        } else {
+                            remove_analytics()
+                        }
+                    },
+                    onRevokeChoice: function() {
+                        var didConsent = this.hasConsented();
+                        if (didConsent) {
+                            analytics()
+                        } else {
+                            remove_analytics()
+                        }
+                    }
+                })
+            });
+        </script>
     </head>
-    <body style="background: url('https://brontosaurus.leonardini.dev/logo.svg'); background-size: auto 70%; background-position: center center; background-repeat: no-repeat; height: 100vh; width: 100vw; margin: 0; padding: 0; cursor: pointer;" onclick="window.location.href='https://github.com/LorenzoLeonardini/Brontosaurus';">
-
-
-	<div style="font-family: arial; position: fixed; bottom: 0; left: 0; background: rgb(51, 51, 51); color: #f0f0f0; padding: 15px 50px 15px 50px">
-		This site saves small pieces of text information (cookies) on your device in order to deliver better content and for statistical purposes. You can disable the usage of cookies by changing the settings of your browser. By browsing this website without changing the browser settings you grant us permission to store that information on your device.
-	<div>
+    <body style="margin: 0; padding: 0;">
+        <div  style="background: url('https://brontosaurus.leonardini.dev/logo.svg'); background-size: auto 70%; background-position: center center; background-repeat: no-repeat; height: 100vh; width: 100vw; margin: 0; padding: 0; cursor: pointer;" onclick="window.location.href='https://github.com/LorenzoLeonardini/Brontosaurus';">
+        </div>
 	</body>
 </html>
