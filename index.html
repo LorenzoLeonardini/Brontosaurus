@@ -25,8 +25,6 @@
         <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
         <script>
             window.addEventListener("load", function(){
-                window.cookieconsent.domain = 'brontosaurus.leonardini.dev'
-                window.cookieconsent.path = '/'
                 window.cookieconsent.initialise({
                     palette: {
                         popup: { background: "#252e39" },
@@ -39,6 +37,10 @@
                     content: {
                         message: "This website uses cookies to ensure you get the best experience on our website and to allow us to get statistical data.",
                         allow: "Allow"
+                    },
+                    cookie: {
+                        domain: 'brontosaurus.leonardini.dev',
+                        path: '/'
                     },
                     onInitialise: function (status) {
                         var didConsent = this.hasConsented();
