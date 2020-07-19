@@ -15,20 +15,32 @@ function generateToken(string $name) : string {
     return $token;
 }
 
-function validateToken(string $name) : Validation {
-    if(!isset($_POST['form_name'])) {
+function validateToken(string $name, ?string $value = NULL) : Validation {
+	$form_name = '';
+	$form_token = '';
+
+	if($value === NULL) {
+		// Getting from POST data
+		$form_name = $_POST['form_name'] ?? NULL;
+		$form_token = $_POST['form_token'] ?? NULL;
+	} else {
+		$form_name = $name;
+		$form_token = $value;
+	}
+
+    if(!isset($form_name) || $form_name === NULL || strlen($form_name) === 0) {
         return new Validation(false, ValidationCode::NO_FORM_NAME);
     }
 
-    if($_POST['form_name'] !== $name) {
+    if($form_name !== $name) {
         return new Validation(false, ValidationCode::WRONG_FORM_NAME);
     }
 
-    if(!isset($_POST['form_token'])) {
+    if(!isset($form_token) || $form_token === NULL || strlen($form_token) === 0) {
         return new Validation(false, ValidationCode::NO_FORM_TOKEN);
     }
 
-    if(!isset($_SESSION['form_tokens_'.$name]) || !in_array($_POST['form_token'], $_SESSION['form_tokens_'.$name], true)) {
+    if(!isset($_SESSION['form_tokens_'.$name]) || !in_array($form_token, $_SESSION['form_tokens_'.$name], true)) {
         return new Validation(false, ValidationCode::INVALID_TOKEN);
     }
 
